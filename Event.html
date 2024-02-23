@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with harmony landing page.">
+        <meta name="author" content="Devcrud">
+        <title>Harmony Hub</title>
+        <!-- font icons -->
+        <link rel="stylesheet" href="css/themify-icons.css">
+        <!-- Bootstrap + Harmony hub main styles -->
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            function show() {
+                var l = document.getElementById("log");
+                l.innerHTML = "LogOut";
+            }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $("button").click(function () {
+                    $.getJSON('event.json', function (jd) {
+                        $.each(jd, function (i, field) {
+                            $("#event").prepend($('<img>', {id: 'event', src: field.image}));
+                            $("#title").html(field.title);
+                        });
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" onload="show()">
+
+        <!-- Page Navbar -->
+        <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+            <div class="container">
+                <a class="logo" href="#">Harmony Hub</a>
+                <ul class="nav">
+                    <li class="item">
+                        <a class="link" href="index.html">Home</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Portfolio</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Services</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Team</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Blog</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Contact</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="Gallery.html">Gallery</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="Event.html">Event</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="Login.html" id="log">Login</a>
+                    </li>
+
+                </ul>
+                <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </a>
+            </div>
+        </nav><!-- End of Page Navbar -->
+
+        <!-- page header -->
+        <header id="home" class="header">
+            <div class="overlay"></div>
+            <iframe width="1400" height="550" 
+                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            </iframe>
+
+        </header><!-- end of page header -->
+
+        <!-- portfolio section -->
+        <section class="section" id="portfolio">
+            <div class="container text-center">
+                <p class="section-subtitle">What We Did ?</p>
+                <h6 class="section-title mb-6">Our Event</h6>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#" class="portfolio-card" >
+                            <img src="images/event1.jpg" id="event" class="portfolio-card-img"
+                                 alt="Project 1">
+                            <span class="portfolio-card-overlay">
+                                <span class="portfolio-card-caption">
+                                    <h4 id="title">Web a festival</h4>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="portfolio-card">
+                            <img src="images/event2.jpg" id="event" class="portfolio-card-img"
+                                 alt="Project 1">
+                            <span class="portfolio-card-overlay">
+                                <span class="portfolio-card-caption">
+                                    <h4 id="title">Cultural Event</h4>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="portfolio-card" onclick="openModal()">
+                            <img class="portfolio-card-img" src="images/event3.jpg" class="img-responsive rounded"
+                                 alt="Project 3">
+                            <span class="portfolio-card-overlay">
+                                <span class="portfolio-card-caption">
+                                    <h4>Annual Day Event</h4>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="portfolio-card">
+                            <img src="images/event4.jpg" class="portfolio-card-img"
+                                 alt="Project 1">
+                            <span class="portfolio-card-overlay">
+                                <span class="portfolio-card-caption">
+                                    <h4>Sports day event</h4>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="portfolio-card">
+                            <img src="images/event5.jpg" class="portfolio-card-img"
+                                 alt="Project 1">
+                            <span class="portfolio-card-overlay">
+                                <span class="portfolio-card-caption">
+                                    <h4>Coding Competition</h4>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="portfolio-card">
+                            <img src="images/event6.jpg" class="portfolio-card-img"
+                                 alt="Project 1">
+                            <span class="portfolio-card-overlay">
+                                <span class="portfolio-card-caption">
+                                    <h4>Client meet up</h4>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div><!-- end of row -->
+                <div id="myModel" class="modal">
+                    <span class="close cursor" onclick="closeModal()">&times;</span>
+                </div>
+            </div><!-- end of container -->
+        </section> <!-- end of portfolio section -->
+
+
+        <!-- footer -->
+        <div class="container">
+            <footer class="footer">
+
+                <div class="navbar">
+                    <a href="#policy">Privacy Policy</a>
+                    <a href="#news">Terms of services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </footer>
+        </div> <!-- end of page footer -->
+
+        <!-- core  -->
+        <script src="jquery/jquery-3.4.1.js"></script>
+        <script src="bootstrap/bootstrap.bundle.js"></script>
+
+        <!-- bootstrap 3 affix -->
+        <script src="bootstrap/bootstrap.affix.js"></script>
+
+        <!-- Meyawo js -->
+        <script src="js/main.js"></script>
+
+    </body>
+
+</html>
