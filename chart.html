@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with harmony landing page.">
+        <meta name="author" content="Devcrud">
+        <title>Harmony Hub</title>
+        <!-- Bootstrap + Harmony hub main styles -->
+        <link rel="stylesheet" href="css/style.css">    
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" onload="show()">
+
+        <!-- Page Navbar -->
+        <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+            <div class="container">
+                <a class="logo" href="#">Harmony Hub</a>
+                <ul class="nav">
+                    <li class="item">
+                        <a class="link" href="index.html">Home</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Portfolio</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Services</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Team</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Blog</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="index.html">Contact</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="Gallery.html">Gallery</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="Event.html">Event</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="Login.html" id="log">Login</a>
+                    </li>
+
+                </ul>
+                <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </a>
+            </div>
+        </nav><!-- End of Page Navbar -->
+
+        <!-- page header -->
+
+        <main>
+            <h1>Visitor Statistics</h1>
+            <canvas id="chart"></canvas>
+        </main>
+
+        <!-- footer -->
+        <div class="container">
+            <footer class="footer">
+
+                <div class="navbar">
+                    <a href="#policy">Privacy Policy</a>
+                    <a href="#news">Terms of services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </footer>
+        </div> <!-- end of page footer -->
+
+        <!-- core  -->
+        <script src="js/chart.js"></script> 
+        <script src="jquery/jquery-3.4.1.js"></script>
+        <script src="bootstrap/bootstrap.bundle.js"></script>
+
+        <!-- bootstrap 3 affix -->
+        <script src="bootstrap/bootstrap.affix.js"></script>
+
+        <!-- Meyawo js -->
+        <!--<script src="js/main.js"></script>-->
+        <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+        </script>
+        <script>
+            function show() {
+                var l = document.getElementById("log");
+                l.innerHTML = "LogOut";
+            }
+        </script>
+    </body>
+
+
+</html>
