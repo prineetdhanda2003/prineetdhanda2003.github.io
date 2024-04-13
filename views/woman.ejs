@@ -1,0 +1,191 @@
+<%- include('partials/header') -%>
+
+<div class="container-fluid headerGap bg-white" style="padding: 0">
+	<div class="row p-0 m-0 bg-light" style="height: 3em">
+		<nav>
+			
+		</nav>
+		
+
+	</div>
+	
+	<div class="row p-0 m-0 " style="width: 100vw;">
+		
+		
+		<div class="col-md-12" style="padding-left: 3em; padding-right: 3em;">
+			<div class="containerProd bg-white d-flex" style="height: auto; padding-top: 2em">
+				<ul class="productPage p-0 m-0" style="flex-grow: 1; flex-basis: 0;">
+
+					<!-----ROW 1-->
+
+					<%for(var i=0; i<product.length; i++) {%>								<!--loops through each item in collection-->
+						<li style="margin-left: .25em; margin-right: .25em;">
+						  <a href="/products/productPage/<%=product[i]._id%>">
+							<div class="card galleryItem1 galleryCard d-flex">
+								<img src="<%= product[i].image %>" alt="product image" style="width:100%; height: 400px;">
+								<div class="container" style="place-content: end end;">
+								<h4><b><%= product[i].title %></b></h4> 
+								<%if(product[i].sale === 'true'){%>
+                                    <p class="text-danger"> <%=  product[i].price %>  on sale</p>
+                                    <% } else{ %> 
+                                    <p> <%=  product[i].price %></p>
+                                    <%  } %> 
+								</div>
+							</div>
+						</a>
+
+						</li>
+					  <%  } %> 
+
+						<li>
+							<a href="/products/productPage">
+							<div class="card galleryItem1 galleryCard d-flex">
+                                <img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+								<div class="container" style="place-content: end end;">
+								<h4><b>Black Tee</b></h4> 
+								<p>$20</p>
+								<span> <%= product[0].price %> </span> 
+								</div>
+							</div>
+						</a>
+						</li>
+						<li>
+						<a href="/">
+							<div class="card galleryItem2">
+                                <img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+								<div class="container">
+								<h4><b>Selvege Jeans</b></h4> 
+								<p>$60</p> 
+								</div>
+								</div>
+						</a>
+						</li>
+						<li>
+						<a href="/">
+					<div class="card galleryItem3">
+                        <img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+						<div class="container">
+						<h4><b> placeholder </b></h4> 
+						<p>$120</p> 
+						</div>
+					</div>
+				</a>
+				</li>
+				<li>
+				<a href="/">
+					<div class="card galleryItem4">
+						<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+						<div class="container">
+						<h4><b>placeholder </b></h4> 
+						<p>$30</p> 
+						</div>
+				</div>
+				</a>
+			</li>
+				<!-------ROW 2-->
+				<li>
+					<a href="/products/productPage">
+					<div class="card galleryItem1 galleryCard d-flex">
+						<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+						<div class="container" style="place-content: end end;">
+						<h4><b>placeholder </b></h4> 
+						<p>$20</p>
+						<span> <%= product[0].price %> </span> 
+						</div>
+					</div>
+				</a>
+				</li>
+				<li>
+				<a href="/">
+					<div class="card galleryItem2">
+						<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+						<div class="container">
+						<h4><b>placeholder </b></h4> 
+						<p>$60</p> 
+						</div>
+						</div>
+				</a>
+				</li>
+				<li>
+				<a href="/">
+			<div class="card galleryItem3">
+				<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+				<div class="container">
+				<h4><b>placeholder </b></h4> 
+				<p>$120</p> 
+				</div>
+			</div>
+		</a>
+		</li>
+		<li>
+		<a href="/">
+			<div class="card galleryItem4">
+				<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+				<div class="container">
+				<h4><b>placeholder </b></h4> 
+				<p>$50</p> 
+				</div>
+		</div>
+		</a>
+	</li>
+			<!-------ROW 3-->
+			<li>
+				<a href="/products/productPage">
+				<div class="card galleryItem1 galleryCard d-flex ">
+					<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+					<div class="container" style="place-content: end end;">
+					<h4><b>placeholder </b></h4> 
+					<p>$20</p>
+					<span> <%= product[0].price %> </span> 
+					</div>
+				</div>
+			</a>
+			</li>
+			<li>
+			<a href="/">
+				<div class="card galleryItem2">
+					<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+					<div class="container">
+					<h4><b>placeholder </b></h4> 
+					<p>$60</p> 
+					</div>
+					</div>
+			</a>
+			</li>
+			<li>
+			<a href="/">
+		<div class="card galleryItem3">
+			<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+			<div class="container">
+			<h4><b>placeholder </b></h4> 
+			<p>$120</p> 
+			</div>
+		</div>
+	</a>
+	</li>
+	<li>
+	<a href="/">
+		<div class="card galleryItem4">
+			<img src="/imgs/merch/blacktee.jpg" alt="Avatar" style="width:100%; height: 400px;">
+			<div class="container">
+			<h4><b>placeholder </b></h4> 
+			<p>$1000</p> 
+			</div>
+	</div>
+	</a>
+</li>
+		</ul>
+
+
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+		
+
+<%- include('partials/footer') -%>

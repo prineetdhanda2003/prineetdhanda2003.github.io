@@ -1,0 +1,118 @@
+<%- include('partials/header') -%>
+<div class="container-fluid bg-white headerGap" style="padding: 0;">
+  <div class="row p-0 m-0" style="min-height: 500px; width: 100vw;">
+      <div class="col-6 p-0">
+          <div class="mt-5 mb-5">
+            <div class="mb-3 d-flex flex-column">
+             
+            
+
+            <!----------profPic end----------->
+            
+            
+               <div class="align-self-center">
+                <h1><%= user.userName %> is logged in</h1>
+              
+              <p><strong>Email</strong>: <%= user.email %></p>
+              
+              <a href="/logout" class="col-3 btn btn-secondary" style="width:150px">Logout</a>
+              </div>
+
+
+          </div>
+
+            </div>
+            
+                  
+          <!------------->
+      </div>
+      <div class="col-6 p-0">
+        <div class="mt-5 mb-5">
+          <div class="align-self-center text-center">
+            <h1>your wishlist:</h1>
+          </div>
+
+        </div>
+        <div class="align-self-center text-center">
+          <% if(user.wishList.length === 0){%>
+            <h1> your wishlist is empty!</h1>
+
+            <% } else for(var i=0; i<user.wishList.length; i++) {%>
+              <li class="col-6 justify-content-center mt-5">
+                <a href="/products/productPage/<%=product[i]._id%>"><!---/post/ Posts[i]-->
+                  <img class="img-fluid" src="<%= product[i].image%>">
+                
+                
+              </li>
+            <% } %>%>
+           
+
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>
+
+
+<!---
+<button type="button" class="profPicUpdateBtn btn btn-primary align-self-center" data-bs-toggle="modal" data-bs-target="#profPicModal">
+  Update Photo
+  
+</button>
+***MODAL FOR SELECTING A NEW PROFILE PICTURE****
+<div class="modal fade" id="profPicModal" tabindex="-1" role="dialog" aria-labelledby="ProfPicModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ProfPicModalLabel">Select a new profile picture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/profPic/NewProfPic" method="POST" enctype="multipart/form-data"  >
+          <label for="imgUpload" class="form-label">Image</label>
+          <input type="file" class="form-control" id="imageUpload" name="file">
+          
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close <span aria-hidden="true">&times;</span> </button>
+        <button type="submit" class="btn btn-primary" value="Upload">Choose Image</button> 
+      </div>
+    </form>
+    </div>
+  </div>
+</div> 
+
+
+
+
+*****MODAL FOR NEW BIO ************
+
+<div class="modal fade" id="bioModal" tabindex="-1" role="dialog" aria-labelledby="bioModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="bioModalLabel">Bio</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="" method="">
+                        
+                        <textarea type="texarea" class="form-control" id="bioUpdae" name="bio"></textarea>
+                        
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close <span aria-hidden="true">&times;</span> </button>
+                      <button type="submit" class="btn btn-primary" value="Upload">Update Bio</button> 
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+
+--->
