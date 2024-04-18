@@ -1,73 +1,53 @@
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-const passport = require("passport");
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-const methodOverride = require("method-override");
-const flash = require("express-flash");
-const logger = require("morgan");
-const connectDB = require("./config/database");
-const mainRoutes = require("./routes/main");
-const productRoutes = require("./routes/products")
-//const productRoutes = require("./routes/products");
-//const postRoutes = require("./routes/posts");
-//const commentRoutes = require("./routes/comments");
-//const profPicRoutes = require("./routes/profPic");
-
-//Use .env file in config folder
-require("dotenv").config({ path: "./config/.env" });
-
-// Passport config
-require("./config/passport")(passport);
-
-//Connect To Database
-connectDB();
-
-//Using EJS for views
-app.set("view engine", "ejs");
-
-//Static Folder
-app.use(express.static("public"));
-
-//Body Parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-//Logging
-app.use(logger("dev"));
-
-//Use forms for put / delete
-app.use(methodOverride("_method"));
-
-// Setup Sessions - stored in MongoDB
-app.use(
-  session({
-    secret: "YeahhhBoiii",
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
-);
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-//Use flash messages for errors, info, ect...
-app.use(flash());
-
-//Setup Routes For Which The Server Is Listening
-app.use("/", mainRoutes);
-app.use("/products", productRoutes);
-
-
-//app.use("/post", postRoutes);
-//app.use("/comment", commentRoutes);
-//app.use("/profPic.js", profPicRoutes);
-
-//Server Running
-app.listen(process.env.PORT, () => {
-  console.log("Server is online");
-});
-
+#!/usr/bin/env node
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const app_1 = __importDefault(require("./config/app"));
+const debug_1 = __importDefault(require("debug"));
+const http_1 = __importDefault(require("http"));
+const port = normalizePort(process.env.PORT || '3000');
+app_1.default.set('port', port);
+const server = http_1.default.createServer(app_1.default);
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+function normalizePort(val) {
+    const port = parseInt(val, 10);
+    if (isNaN(port)) {
+        return val;
+    }
+    if (port >= 0) {
+        return port;
+    }
+    return false;
+}
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+    const bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+function onListening() {
+    const addr = server.address();
+    const bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr;
+    (0, debug_1.default)('Listening on ' + bind);
+}
+//# sourceMappingURL=server.js.map
